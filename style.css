@@ -1,0 +1,150 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+:root {
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  --white: white;
+  --black: black;
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+}
+
+.container {
+  max-width: 80vw;
+  margin: auto;
+}
+
+header {
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  border-bottom: 2px solid var(--light-grayish-blue);
+}
+
+header #hamburger-menu {
+  display: none;
+}
+
+header div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  gap: 3em;
+}
+
+header div:first-of-type a {
+  text-decoration: none;
+  margin-left: 2em;
+  color: var(--grayish-blue);
+  padding-bottom: 5.8vh;
+  font-size: 1rem;
+}
+
+header div:first-of-type a:hover {
+  border-bottom: 3px solid var(--orange);
+}
+
+header div:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+header div:last-of-type #avatar {
+  transform: scale(0.5);
+  cursor: pointer;
+}
+
+header div:last-of-type .cart-container {
+  cursor: pointer;
+  width: fit-content;
+  /* transform: translateX(30px); */
+  position: relative;
+}
+
+header div:last-of-type .cart-container .cart {
+  display: none;
+  width: 300px;
+  height: 200px;
+  background-color: var(--white);
+  position: absolute;
+  bottom: -230px;
+  right: -100px;
+  box-shadow: 0px 1px 20px 0px rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+  /* display: none; */
+}
+
+@media only screen and (max-width: 970px) {
+  .container {
+    max-width: 90vw;
+  }
+
+  header {
+    height: 10vh;
+  }
+
+  header #hamburger-menu {
+    display: block;
+    z-index: 2000;
+  }
+
+  header div:first-of-type {
+    gap: 10px;
+    align-items: center;
+  }
+
+  header div:first-of-type nav {
+    display: none;
+  }
+
+  header div:last-of-type {
+    gap: 0;
+    align-items: center;
+    /* background-color: red; */
+    padding: 0;
+    margin: 0;
+    transform: translateX(10%);
+  }
+
+  header div:first-of-type nav.active {
+    display: flex;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 65vw;
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 5em;
+    z-index: 10;
+  }
+
+  header div:first-of-type nav.active::after{
+    width: 35vw;
+    height: 100vh;
+    display: block;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.082);
+    position: absolute;
+    top: 0;
+    right: -54%;
+    z-index: -1;
+    
+  }
+
+  header div:first-of-type nav.active a {
+    color: black;
+  }
+}
